@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./Register.css";
 
 function Register() {
@@ -10,7 +10,7 @@ function Register() {
     state: "",
     message: "",
   });
-  const arr = [23, 4, 5, 5];
+
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
