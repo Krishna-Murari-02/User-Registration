@@ -10,7 +10,7 @@ function Register() {
     state: "",
     message: "",
   });
-
+  const arr = [23, 4, 5, 5];
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -20,13 +20,14 @@ function Register() {
 
   const submit = (e) => {
     e.preventDefault();
-    alert("SignUp sucessfully");
+    // alert("SignUp sucessfully");
     const newRecord = {
       ...userRegistration,
-      id: new Date.getTime().toString(),
+      id: new Date().getTime().toString(),
     };
     setrecord([...record, newRecord]);
   };
+  console.log(record);
   return (
     <>
       <div className="container">
@@ -55,8 +56,8 @@ function Register() {
               className="input_field"
               onChange={handleInput}
               value={userRegistration.mobile}
-              placeholder="Enter Your Mobile No.."
-              type="phone"
+              placeholder="Enter your mobile number"
+              type="number"
               name="mobile"
             />
             <input
@@ -90,9 +91,16 @@ function Register() {
         </div>
       </div>
       <div className="allValue">
-        {record.map((item) => {
-          <h1>hh</h1>;
-        })}
+        {record.map((item) => (
+          <>
+            <small>{item.name}</small>
+            <small>{item.email}</small>
+            <small>{item.mobile}</small>
+            <small>{item.country}</small>
+            <small>{item.state}</small>
+            <small>{item.message}</small>
+          </>
+        ))}
       </div>
     </>
   );
